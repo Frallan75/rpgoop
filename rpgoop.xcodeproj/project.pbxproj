@@ -12,6 +12,11 @@
 		BA9DA1251C52B7C700CD086D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9DA1231C52B7C700CD086D /* Main.storyboard */; };
 		BA9DA1271C52B7C700CD086D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA9DA1261C52B7C700CD086D /* Assets.xcassets */; };
 		BA9DA12A1C52B7C700CD086D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA9DA1281C52B7C700CD086D /* LaunchScreen.storyboard */; };
+		BA9DA1321C52B9CD00CD086D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DA1311C52B9CD00CD086D /* Character.swift */; };
+		BA9DA1341C52BC1C00CD086D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DA1331C52BC1C00CD086D /* Player.swift */; };
+		BA9DA1361C52BDBE00CD086D /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DA1351C52BDBE00CD086D /* Enemy.swift */; };
+		BA9DA1381C52BEC900CD086D /* Kimara.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DA1371C52BEC900CD086D /* Kimara.swift */; };
+		BA9DA13A1C52BFE500CD086D /* DevilWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DA1391C52BFE500CD086D /* DevilWizard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		BA9DA1261C52B7C700CD086D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA9DA1291C52B7C700CD086D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA9DA12B1C52B7C700CD086D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA9DA1311C52B9CD00CD086D /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		BA9DA1331C52BC1C00CD086D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BA9DA1351C52BDBE00CD086D /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		BA9DA1371C52BEC900CD086D /* Kimara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kimara.swift; sourceTree = "<group>"; };
+		BA9DA1391C52BFE500CD086D /* DevilWizard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevilWizard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +70,37 @@
 				BA9DA1261C52B7C700CD086D /* Assets.xcassets */,
 				BA9DA1281C52B7C700CD086D /* LaunchScreen.storyboard */,
 				BA9DA12B1C52B7C700CD086D /* Info.plist */,
+				BA9DA13C1C52C08F00CD086D /* Character */,
 			);
 			path = rpgoop;
+			sourceTree = "<group>";
+		};
+		BA9DA13B1C52C07100CD086D /* Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				BA9DA1351C52BDBE00CD086D /* Enemy.swift */,
+				BA9DA1371C52BEC900CD086D /* Kimara.swift */,
+				BA9DA1391C52BFE500CD086D /* DevilWizard.swift */,
+			);
+			name = Enemy;
+			sourceTree = "<group>";
+		};
+		BA9DA13C1C52C08F00CD086D /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				BA9DA1311C52B9CD00CD086D /* Character.swift */,
+				BA9DA13D1C52C0C000CD086D /* Player */,
+				BA9DA13B1C52C07100CD086D /* Enemy */,
+			);
+			name = Character;
+			sourceTree = "<group>";
+		};
+		BA9DA13D1C52C0C000CD086D /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				BA9DA1331C52BC1C00CD086D /* Player.swift */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +135,7 @@
 				TargetAttributes = {
 					BA9DA11B1C52B7C700CD086D = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = JL8DFJ338P;
 					};
 				};
 			};
@@ -135,6 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA9DA1341C52BC1C00CD086D /* Player.swift in Sources */,
+				BA9DA1361C52BDBE00CD086D /* Enemy.swift in Sources */,
+				BA9DA13A1C52BFE500CD086D /* DevilWizard.swift in Sources */,
+				BA9DA1381C52BEC900CD086D /* Kimara.swift in Sources */,
+				BA9DA1321C52B9CD00CD086D /* Character.swift in Sources */,
 				BA9DA1221C52B7C700CD086D /* ViewController.swift in Sources */,
 				BA9DA1201C52B7C700CD086D /* AppDelegate.swift in Sources */,
 			);
@@ -249,10 +294,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = rpgoop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.francisco.claret.rpgoop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +308,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = rpgoop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.francisco.claret.rpgoop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

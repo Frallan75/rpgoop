@@ -10,16 +10,77 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var enemyImg: UIImageView!
+    
+    @IBOutlet weak var playerHpLbl: UILabel!
+    
+    @IBOutlet weak var enemyHpLbl: UILabel!
+    
+    @IBOutlet weak var chestButton: UIButton!
+    
+    @IBOutlet weak var attackButtonLbl: UIButton!
+    
+    @IBOutlet weak var printLbl: UILabel!
+    
+    var player: Player!
+    var enemy: Enemy!
+    var chestMessage: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        player = Player(name: "Mannen", hp: 110, attackPwr: 20)
+        playerHpLbl.text = ("\(player.hp)")
+        print(player.hp)
+    
+        generateRandomEnemy()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func generateRandomEnemy() {
+        let rand = Int(arc4random_uniform(2))
+            if rand == 0 {
+                enemy = Kimara(startingHP: 50, attackPwr: 12)
+            } else {
+                enemy = DevilWizard(startingHP: 70, attackPwr: 15)
+        }
+        enemyImg.hidden = false
+        enemyHpLbl.hidden = false
+        enemyHpLbl.text = String(enemy.hp)
+        attackButtonLbl.hidden = false
+        printLbl.text = "Lets go! Press Attack button!"
     }
+    
 
-
+    @IBAction func onChestTapped(sender: AnyObject) {
+        chestButton.hidden = true
+        printLbl.text = chestMessage
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "generateRandomEnemy", userInfo: nil, repeats: false)
+    }
+    
+    @IBAction func attackButtonTapped(sender: UIButton) {
+        
+        if enemy.attemptAttack(player.attackPwr) {
+            printLbl.text = "Attacked \(enemy.type) for \(player.attackPwr) HP"
+            enemyHpLbl.text = String(enemy.hp)
+        } else {
+            printLbl.text = "Attack failed"
+        }
+        
+        if let loot = enemy.dropLoot() {
+            player.addItemToInventory(loot)
+            chestMessage = "\(player.name) found \(loot)"
+            chestButton.hidden = false
+            attackButtonLbl.hidden = true
+        }
+        
+        if !enemy.isAlive {
+            enemyHpLbl.text = ""
+            printLbl.text = "Killed \(enemy.type). Tapp chest to collect loot!"
+            enemyImg.hidden = true
+        }
+        
+    }
 }
+
+
 
