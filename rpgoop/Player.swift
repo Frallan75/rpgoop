@@ -10,7 +10,7 @@ import Foundation
 
 class Player: Character {
     
-    private var _name: String = "Player"
+    fileprivate var _name: String = "Player"
     
     var name: String {
         get {
@@ -18,7 +18,7 @@ class Player: Character {
         }
     }
     
-    private var _inventory = [String]()
+    fileprivate var _inventory = [String]()
     
     var inventory: [String] {
         get {
@@ -26,7 +26,7 @@ class Player: Character {
         }
     }
     
-    func addItemToInventory(item: String) {
+    func addItemToInventory(_ item: String) {
         _inventory.append(item)
     }
     

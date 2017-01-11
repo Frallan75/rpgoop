@@ -10,8 +10,8 @@ import Foundation
 
 class Character {
     
-    private var _hp: Int = 100
-    private var _attackPwr = 10
+    fileprivate var _hp: Int = 100
+    fileprivate var _attackPwr = 10
     
     var attackPwr: Int {
         get {
@@ -41,8 +41,7 @@ class Character {
         self._attackPwr = attackPwr
     }
     
-    func attemptAttack(attackPwr: Int) -> Bool {
-        print("in here")
+    func attemptAttack(_ attackPwr: Int) -> Bool {
         self._hp -= attackPwr
         return true
     }

@@ -43,21 +43,21 @@ class ViewController: UIViewController {
             } else {
                 enemy = DevilWizard(startingHP: 70, attackPwr: 15)
         }
-        enemyImg.hidden = false
-        enemyHpLbl.hidden = false
+        enemyImg.isHidden = false
+        enemyHpLbl.isHidden = false
         enemyHpLbl.text = String(enemy.hp)
-        attackButtonLbl.hidden = false
+        attackButtonLbl.isHidden = false
         printLbl.text = "Lets go! Press Attack button!"
     }
     
 
-    @IBAction func onChestTapped(sender: AnyObject) {
-        chestButton.hidden = true
+    @IBAction func onChestTapped(_ sender: AnyObject) {
+        chestButton.isHidden = true
         printLbl.text = chestMessage
-        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "generateRandomEnemy", userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ViewController.generateRandomEnemy), userInfo: nil, repeats: false)
     }
     
-    @IBAction func attackButtonTapped(sender: UIButton) {
+    @IBAction func attackButtonTapped(_ sender: UIButton) {
         
         if enemy.attemptAttack(player.attackPwr) {
             printLbl.text = "Attacked \(enemy.type) for \(player.attackPwr) HP"
@@ -69,14 +69,14 @@ class ViewController: UIViewController {
         if let loot = enemy.dropLoot() {
             player.addItemToInventory(loot)
             chestMessage = "\(player.name) found \(loot)"
-            chestButton.hidden = false
-            attackButtonLbl.hidden = true
+            chestButton.isHidden = false
+            attackButtonLbl.isHidden = true
         }
         
         if !enemy.isAlive {
             enemyHpLbl.text = ""
             printLbl.text = "Killed \(enemy.type). Tapp chest to collect loot!"
-            enemyImg.hidden = true
+            enemyImg.isHidden = true
         }
         
     }
